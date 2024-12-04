@@ -1,0 +1,30 @@
+import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:flutter/cupertino.dart';
+
+class ConnectivityController {
+  ConnectivityController._();
+
+  static final ConnectivityController instance = ConnectivityController._();
+
+  ValueNotifier<bool> isInternetConnectedNotifier = ValueNotifier<bool>(true);
+
+  Future<void> init() async {
+     final result = await Connectivity().checkConnectivity();
+    isInternetConnected(result[result.length - 1]);
+    Connectivity().onConnectivityChanged.listen((result) {
+      isInternetConnected(result[result.length - 1]);
+    });
+  }
+
+  bool isInternetConnected(ConnectivityResult? result) {
+    if (result == ConnectivityResult.none) {
+      isInternetConnectedNotifier.value = false;
+      return false;
+    } else if (result == ConnectivityResult.mobile ||
+        result == ConnectivityResult.wifi) {
+      isInternetConnectedNotifier.value = true;
+      return true;
+    }
+      return false;
+  }
+}
