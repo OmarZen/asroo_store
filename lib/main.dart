@@ -1,13 +1,15 @@
 import 'package:asroo_store/asroo_store_app.dart';
 import 'package:asroo_store/core/app/env.variables.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
 import 'firebase_options.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
   await EnvVariables.instance.init(envType: EnvTypeEnum.dev);
 
@@ -19,5 +21,6 @@ Future<void> main() async {
     DeviceOrientation.portraitDown,
     DeviceOrientation.portraitUp,
   ]).then((_) => runApp(const AsrooStoreApp()));
+  FlutterNativeSplash.remove();
 }
 
