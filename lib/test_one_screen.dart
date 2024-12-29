@@ -1,5 +1,6 @@
+import 'package:asroo_store/core/extensions/context_extensions.dart';
+import 'package:asroo_store/core/language/lang_keys.dart';
 import 'package:asroo_store/core/routes/app_routes.dart';
-import 'package:asroo_store/extensions/context_extensions.dart';
 import 'package:flutter/material.dart';
 
 class TestOneScreen extends StatelessWidget {
@@ -13,6 +14,13 @@ class TestOneScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
+          Text(
+            context.translate(LangKeys.appName),
+            style: TextStyle(
+              color: Colors.red,
+              fontSize: 40,
+            ),
+          ),
           Image.asset(context.assets.testImage ?? ''),
           Center(
             child: MaterialButton(
@@ -20,6 +28,13 @@ class TestOneScreen extends StatelessWidget {
                 context.pushNamed(AppRoutes.testTwo);
               },
               child: const Text('Go to Test Two Screen'),
+            ),
+          ),
+          Text(
+            context.translate(LangKeys.appName),
+            style: TextStyle(
+              color: context.color.mainColor,
+              fontSize: 40,
             ),
           ),
         ],
