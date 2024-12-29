@@ -1,4 +1,5 @@
-import 'package:asroo_store/style/theme/color_extension.dart';
+import 'package:asroo_store/core/language/app_localizations.dart';
+import 'package:asroo_store/core/style/theme/color_extension.dart';
 import 'package:flutter/material.dart';
 
 import '../style/theme/image_extension.dart';
@@ -12,6 +13,11 @@ extension ContextExtensions on BuildContext {
   // image
   MyImages get assets {
     return Theme.of(this).extension<MyImages>()!;
+  }
+
+  // language
+  String translate(String langkey) {
+    return AppLocalizations.of(this)!.translate(langkey).toString();
   }
 
   Future<dynamic> pushNamed(String routeName, {Object? arguments}) {

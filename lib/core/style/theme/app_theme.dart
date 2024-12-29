@@ -1,8 +1,9 @@
-import 'package:asroo_store/style/colors/colors_dark.dart';
-import 'package:asroo_store/style/colors/colors_light.dart';
-import 'package:asroo_store/style/theme/color_extension.dart';
-import 'package:asroo_store/style/theme/image_extension.dart';
+import 'package:asroo_store/core/style/colors/colors_light.dart';
+import 'package:asroo_store/core/style/theme/color_extension.dart';
 import 'package:flutter/material.dart';
+
+import '../colors/colors_dark.dart';
+import 'image_extension.dart';
 
 ThemeData themeDark() {
   return ThemeData(

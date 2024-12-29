@@ -1,4 +1,4 @@
-import 'package:asroo_store/common/screens/under_build_screen.dart';
+import 'package:asroo_store/core/common/screens/under_build_screen.dart';
 import 'package:asroo_store/core/routes/base_routes.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -13,11 +13,11 @@ class AppRoutes {
     final args = settings.arguments;
     switch (settings.name) {
       case testOne:
-      return BaseRoute(page: const TestOneScreen());
+        return BaseRoute(page: const TestOneScreen());
       case testTwo:
-      return BaseRoute(page: const TestTwoScreen());
+        return BaseRoute(page: const TestTwoScreen());
       default:
-      return BaseRoute(page: const PageUnderBuildScreen());
+        return BaseRoute(page: const PageUnderBuildScreen());
     }
   }
 }
