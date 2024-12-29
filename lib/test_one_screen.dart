@@ -11,13 +11,18 @@ class TestOneScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('Test One Screen'),
       ),
-      body: Center(
-        child: MaterialButton(
-          onPressed: (){
-            context.pushNamed(AppRoutes.testTwo);
-          },
-          child: const Text('Go to Test Two Screen'),
-        ),
+      body: Column(
+        children: [
+          Image.asset(context.assets.testImage ?? ''),
+          Center(
+            child: MaterialButton(
+              onPressed: () {
+                context.pushNamed(AppRoutes.testTwo);
+              },
+              child: const Text('Go to Test Two Screen'),
+            ),
+          ),
+        ],
       ),
     );
   }
