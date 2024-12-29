@@ -31,12 +31,17 @@ class AsrooStoreApp extends StatelessWidget {
               localizationsDelegates:
                   AppLocalizationsSetup.localizationsDelegates,
               builder: (context, widget) {
-                return Scaffold(
-                  body: Builder(
-                    builder: (context) {
-                      ConnectivityController.instance.init();
-                      return widget!;
-                    },
+                return GestureDetector(
+                  onTap: () {
+                    FocusManager.instance.primaryFocus?.unfocus();
+                  },
+                  child: Scaffold(
+                    body: Builder(
+                      builder: (context) {
+                        ConnectivityController.instance.init();
+                        return widget!;
+                      },
+                    ),
                   ),
                 );
               },
